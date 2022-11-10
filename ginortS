@@ -1,0 +1,17 @@
+s= input()
+
+s_lower, s_upper, s_digit = [], [], []
+
+for item in s:
+    if item.islower():
+        s_lower.append(item)
+    elif item.isupper():
+        s_upper.append(item)
+    else:
+        s_digit.append(item)
+        
+s_lower.sort()
+s_upper.sort()
+s_digit = list(map(str, sorted(list(map(int,s_digit)), key=lambda x: (not (x%2),x))))
+
+print(''.join(s_lower+s_upper+s_digit))
